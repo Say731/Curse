@@ -1,0 +1,27 @@
+{
+  "name": "ztupid-gen",
+  "version": "1.0.0",
+  "description": "An agentic vibe coding app builder that generates code with personality",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "deploy": "./deploy.sh",
+    "docker:build": "docker build -t ztupid-gen .",
+    "docker:run": "docker run -p 5000:5000 ztupid-gen",
+    "docker:compose": "docker-compose up -d",
+    "test:api": "curl -s http://localhost:5000/api/personalities",
+    "publish:vercel": "cd client && npx vercel --prod",
+    "publish:netlify": "cd client && npx netlify deploy --prod --dir=build"
+  },
+  "keywords": ["ai", "code-generation", "agentic", "vibe", "app-builder"],
+  "author": "ztupid gen team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
